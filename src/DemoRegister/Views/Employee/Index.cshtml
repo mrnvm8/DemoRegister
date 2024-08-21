@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Employee>
+
+<h2>Employee List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="EnterAttendance" asp-route-id="@employee.Id">Enter Attendance</a>
+                    <a asp-controller="Employee" asp-action="ViewGroupedAttendance" asp-route-employeeId="@employee.Id" class="btn btn-primary">View Attendance</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

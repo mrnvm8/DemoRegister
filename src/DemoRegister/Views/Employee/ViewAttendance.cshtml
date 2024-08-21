@@ -1,0 +1,27 @@
+﻿@model AttendanceViewModel
+
+<h2>Attendance for @Model.Employee.Name</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th>Status</th>
+            <th>Additional Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attendance in Model.WeeklyAttendance)
+        {
+            <tr>
+                <td>@attendance.Date.ToShortDateString()</td>
+                <td>@attendance.TimeIn?.ToString("hh\\:mm")</td>
+                <td>@attendance.TimeOut?.ToString("hh\\:mm")</td>
+                <td>@attendance.Status.StatusType</td>
+                <td>@attendance.Status.AdditionalInfo</td>
+            </tr>
+        }
+    </tbody>
+</table>

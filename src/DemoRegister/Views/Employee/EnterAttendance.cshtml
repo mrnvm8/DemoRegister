@@ -1,0 +1,34 @@
+﻿@model AttendanceViewModel
+
+@{
+    var employeeId = Model.Employee.Id;
+}
+
+<h2>Enter Weekly Attendance for @Model.Employee.Name</h2>
+<form asp-action="SaveAttendance">
+    <input type="hidden" asp-for="@employeeId" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Status</th>
+                <th>Additional Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.WeeklyAttendance.Count; i++)
+            {
+                <tr>
+                    <td><input type="date" asp-for="@Model.WeeklyAttendance[i].Date" class="form-control" /></td>
+                    <td><input type="time" asp-for="@Model.WeeklyAttendance[i].TimeIn" class="form-control" /></td>
+                    <td><input type="time" asp-for="@Model.WeeklyAttendance[i].TimeOut" class="form-control" /></td>
+                    <td><input type="text" asp-for="@Model.WeeklyAttendance[i].Status.StatusType" class="form-control" /></td>
+                    <td><input type="text" asp-for="@Model.WeeklyAttendance[i].Status.AdditionalInfo" class="form-control" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Save Attendance</button>
+</form>

@@ -1,0 +1,36 @@
+﻿@model GroupedAttendanceViewModel
+
+<h2>Attendance for @Model.Employee.Name</h2>
+@await Html.PartialAsync("DeleteModal")
+
+@foreach (var week in Model.GroupedAttendance)
+{
+    <h3>Week of @week.First().Date.ToString("MMMM dd, yyyy") - @week.Last().Date.ToString("MMMM dd, yyyy")</h3>
+    <a asp-action="EditWeeklyAttendance" asp-route-employeeId="@Model.Employee.Id" asp-route-weekStartDate="@week.First().Date" class="btn btn-warning btn-sm">Edit</a>
+    @* <a asp-action="DeleteWeeklyAttendance" asp-route-employeeId="@Model.Employee.Id" asp-route-weekStartDate="@week.First().Date" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this week\'s attendance?');">Delete</a> *@
+    <a href="@Url.Action("DeleteWeeklyAttendance", new { employeeId = Model.Employee.Id, weekStartDate = week.First().Date })"
+       class="btn btn-danger btn-sm delete-button">Delete</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var attendance in week)
+            {
+                <tr>
+                    <td>@attendance.Date.ToString("MMMM dd, yyyy")</td>
+                    <td>@attendance.TimeIn?.ToString("hh\\:mm")</td>
+                    <td>@attendance.TimeOut?.ToString("hh\\:mm")</td>
+                    <td>@attendance.Status.StatusType</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
