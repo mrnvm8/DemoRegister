@@ -7,7 +7,7 @@ the week starts on Monday and Ends on Friday. So basically this system is doing 
 employee’s hours and it stores the data in the In-Memory storage( C# List) and you will lose the data once 
 the application restarts.
 
-The application is being tested using xUnit Testing and it has 21 methods for testing the EmployeeController.
+The application is being tested using xUnit Testing and it has **21 Methods** for testing the EmployeeController.
 software that this application is using for doing the test is: **NSubstitute(For Mocking)** and **FluentAssertions**
 
 The requirement to Run it
