@@ -2,8 +2,8 @@
 
 This is an Application system that was created using .NET 8.0 and Visual Studio 2022.
 
-The Application is an ASP.NET MVC that registers an employee's working hours during the week, 
-the week starts on Monday and Ends on Friday. So basically this system is doing CRUD operation with
+The Application is an ASP.NET MVC that registers employees' working hours during the week, 
+the week starts on Monday and Ends on Friday. So basically this system is doing **CRUD operations** with
 employee’s hours and it stores the data in the In-Memory storage( C# List) and you will lose the data once 
 the application restarts.
 
