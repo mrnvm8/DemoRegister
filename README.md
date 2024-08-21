@@ -12,8 +12,8 @@ software that this application is using for doing the test is: **NSubstitute(For
 
 The requirement to Run it
 =======================
-**=>Visual Studio
+=>Visual Studio
 
 =>.NET 8.0 +
-**
+
 
